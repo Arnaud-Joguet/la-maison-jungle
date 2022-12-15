@@ -1,21 +1,35 @@
 import React  from 'react';
+import { plantList } from '../datas/plantList';
 
-const planList = [
+/* const planList = [
     'monstera',
     'ficus lyrata',
     'pothos argenté',
     'yucca',
     'palmier'
-];
+]; */
 
 function ShoppingList() {
-    return (
-        <ul>
-            {planList.map((plant, index) => (
-                <li key={`${plant}-${index}`}>{plant}</li>
-            ) )}
-        </ul>
-    )
+    const categories = plantList.reduce(
+		(acc, plant) =>
+			acc.includes(plant.category) ? acc : acc.concat(plant.category),
+		[]
+	)
+
+	return (
+		<div>
+			<ul>
+				{categories.map((cat) => (
+					<li key={cat}>{cat}</li>
+				))}
+			</ul>
+			<ul>
+				{plantList.map((plant) => (
+					<li key={plant.id}>{plant.name}</li>
+				))}
+			</ul>
+		</div>
+	)
 }
 
 export default ShoppingList
