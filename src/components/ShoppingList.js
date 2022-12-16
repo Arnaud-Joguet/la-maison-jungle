@@ -1,6 +1,7 @@
 import React  from 'react';
 import { plantList } from '../datas/plantList';
 import '../styles/ShoppingList.css';
+import CareScale from './CareScale'
 
 // first, add data from array
 /* const planList = [
@@ -35,7 +36,11 @@ function ShoppingList() {
 					<li key={plant.id} className='lmj-plant-item' >
 					{plant.name}
 					{plant.isSpecialOffer && <div className='lmj-sales'>Soldes</div> }
-					{plant.isBestSale && <span>🔥</span>} </li> // same as with only one condition {plant.isBestSale ? <span>🔥</span> : null} 
+					{plant.isBestSale && <span>🔥</span>}
+					<CareScale careType='light' scaleValue={plant.light} />
+					<CareScale careType='water' scaleValue={plant.water} />
+
+					</li> 
 				))}
 			</ul>
 		</div>
