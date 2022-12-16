@@ -1,5 +1,6 @@
 import React  from 'react';
 import { plantList } from '../datas/plantList';
+import '../styles/ShoppingList.css';
 
 // first, add data from array
 /* const planList = [
@@ -29,9 +30,12 @@ function ShoppingList() {
 					<li key={cat}>{cat}</li>
 				))}
 			</ul>
-			<ul>
+			<ul className='lmj-plant-list'>
 				{plantList.map((plant) => (
-					<li key={plant.id}>{plant.name}</li>
+					<li key={plant.id} className='lmj-plant-item' >
+					{plant.name}
+					{plant.isSpecialOffer && <div className='lmj-sales'>Soldes</div> }
+					{plant.isBestSale && <span>🔥</span>} </li> // same as with only one condition {plant.isBestSale ? <span>🔥</span> : null} 
 				))}
 			</ul>
 		</div>
