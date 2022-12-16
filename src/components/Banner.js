@@ -10,7 +10,7 @@ function Banner() {
 				<img src={logo} alt="la maison jungle" className='lmj-logo' />
 				<h1 className='lmj-title'>{title}</h1>
 			</div>
-			<Recommandations />
+			{/*<Recommandations />*/}
 		</div> 
 }
 
